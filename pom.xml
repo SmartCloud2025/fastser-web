@@ -1,0 +1,158 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.fastser</groupId>
+  <artifactId>fastser-web</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+
+  <name>fastser-web</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.test.skip>true</maven.test.skip>
+		<maven.test.failure.ignore>true</maven.test.failure.ignore>
+		<jdk.version>1.7</jdk.version>
+		<spring.version>3.2.0.RELEASE</spring.version>
+		<jackson.version>2.2.2</jackson.version>
+		<jackson1.version>1.9.2</jackson1.version>
+		<log4j.version>1.2.16</log4j.version>
+		<junit.version>4.8.1</junit.version>
+		<servlet.version>2.5</servlet.version>
+		<jedis.version>2.1.0</jedis.version>
+  </properties>
+
+  <dependencies>
+  
+  		<dependency>
+			<groupId>org.fastser</groupId>
+		    <artifactId>fastser-dal</artifactId>
+		    <version>1.0.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.fastser</groupId>
+		    <artifactId>fastser-util</artifactId>
+		    <version>1.0.1</version>
+		</dependency>
+		
+		<!-- ==================== -->
+		<!-- Spring -->
+		<!-- ==================== -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+  
+  		<!-- ==================== -->
+		<!-- Spring Web MVC -->
+		<!-- ==================== -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- ==================== -->
+		<!-- Redis -->
+		<!-- ==================== -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
+        </dependency>
+  
+    	<!-- ==================== -->
+		<!-- 日志 -->
+		<!-- ==================== -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.perf4j</groupId>
+			<artifactId>perf4j</artifactId>
+			<version>0.9.16</version>
+		</dependency>
+		<!-- ==================== -->
+		<!-- 其他 -->
+		<!-- ==================== -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<!-- =================================================== -->
+		<!-- servlet -->
+		<!-- =================================================== -->
+		<!-- servlet与jsp一定要provided，因为Tomcat已提供。 -->
+		<!-- 但Tomcat未提供JSTL。 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- ==================== -->
+		<!-- 测试 -->
+		<!-- ==================== -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>UTF-8</encoding>
+				</configuration>	
+			</plugin>
+		</plugins>
+	</build>
+</project>
